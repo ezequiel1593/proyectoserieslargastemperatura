@@ -9,7 +9,7 @@
     <ul>
       <li><a href="#busqueda">Búsqueda de datos y metadatos</a></li>
       <li><a href="#control">Control de calidad de los datos</a></li>
-      <li>Imputación de datos faltantes</li>
+      <li><a href="#imputacion">Imputación de datos faltantes</a></li>
       <li>Homogeneización de la serie</li>
     </ul>
 
@@ -20,7 +20,7 @@
     <p>La temperatura mínima/máxima media estacional es el promedio de las Tnm/Txm que componen la estación, utilizando el criterio meteorológico/climatológico. La temperatura 
     mínima/máxima media anual es el promedio de las Tnm/Txm que componen el año.</p>
 
-    <h4 id="busqueda">Búsqueda de datos y metadatos</h4>
+    <h4 id="busqueda">Búsqueda de datos</h4>
     <p>La materia prima para los datos mensuales son los datos diarios. Se hicieron peticiones al Servicio Meteorológico Nacional (SMN), y de manera periódica fueron actualizados  
     mediante los Datos Abiertos publicados por el mismo SMN. Sin embargo, son realmente muy pocas las estaciones meteorológicas cuyas series de temperaturas mínimas 
     y máximas diarias están totalmente digitalizadas y completas. Por lo tanto, para la <i>parte no digitalizada</i> fue necesario recurrir a otras fuentes.</p>
@@ -45,8 +45,8 @@
     <p>Los controles con datos horarios fueron utilizados principalmente para los datos posteriores a 1991, debido a que en la mayoría de los casos, a partir de este año se tiene  
     una mayor disponibilidad y frecuencia de datos horarios (25 datos horarios por día).</p>
     <div style="background-color: #fff3cd; border-left: 6px solid #ffecb5; padding: 15px; margin: 20px 0; border-radius: 4px; font-family: sans-serif;">
-      Un ejemplo: En Malargüe aparece una temperatura mínima reportada de -3.8°C el día 3 de noviembre del 2008. Sin embargo, la temperatura horaria más baja de aquel día fue de 7.7°C. 
-    En Ogimet, se encontró que los -3.8°C en realidad se tratan de un error de codificación. (21038 en lugar de 20138 en la sección 3 del synop de las 00z). En consecuencia, 
+      Un ejemplo: En Malargüe aparece una temperatura mínima de -3.8°C el día 3 de noviembre del 2008. Sin embargo, la temperatura horaria más baja de aquel día fue de 7.7°C. 
+    En Ogimet, se encontró que los -3.8°C en realidad se tratan de un error de codificación (21038 en lugar de 20138 en la sección 3 del synop de las 00z). En consecuencia, 
       un error de más de 10°C pudo ser corregido.</div>
     <p>Se buscaron otras inconsistencias lógicas, como son:</p>
     <ul>
@@ -55,9 +55,15 @@
       <li>Amplitudes térmicas diarias negativas</li>
     </ul>
 
-
-
-
-
+    <h4 id="imputacion">Imputación de datos faltantes</h4>
+    <ul>
+      <li>Uso de datos horarios: se elaboraron dos factores de corrección, corMin y corMax. La primera consiste en la mediana de la diferencia entre la temperatura mínima diaria 
+        y la temperatura mínima horaria dentro del período 1991-2020, y de manera análoga se define a la segunda. Cada estación con la cantidad suficiente de datos horarios 
+        (25 por día durante una buena cantidad de tiempo) cuenta con un corMin y un corMax. Para que un dato diario faltante sea estimado y rellenado, como mínimo ese día 
+        debe contar con 23 observaciones horarias. La estimación consiste en simplemente sumarle la corrección correspondiente al extremo horario mínimo o máximo, según sea el caso.</li>
+    </ul>
+    <li>Uso de estaciones aledañas: cuando no se pudo imputar datos faltantes usando datos horarios, se armaron modelos de regresión lineal, con 2 estaciones aledañas (en la medida 
+      de lo posible, no incluidas en este proyecto), utilizando períodos acotados de tiempo (no toda la serie), y principalmente para rellenar datos faltantes que, durante determinados 
+      períodos, se generaron como consecuencia de la escasez de personal, en los momentos de las vacaciones del único observador, o en sus descansos dominicales o de fin de semana.</li>
   </body>
 </html>
