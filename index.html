@@ -36,15 +36,16 @@
     <p>Para la <i>parte incompleta</i>, es decir para la parte de los missing values, se utilizaron algunos métodos de imputación, descriptos en la sección correspondiente.</p>
 
     <h4 id="control">Controles de calidad</h4>
-    <p>Los datos diarios fueron comparados con datos horarios, en búsqueda de <i>inconsistencias lógicas</i> y de <i>datos llamativos</i>:</p>
+    <p>Los datos diarios fueron comparados con datos horarios (siempre que hubiera 25 observaciones horarias por día), en búsqueda de <i>inconsistencias lógicas</i> y 
+      de <i>datos llamativos</i>:</p>
     <ul>
       <li>Temperaturas máximas diarias inferiores al dato horario de temperatura más elevado del día</li>
       <li>Temperaturas mínimas diarias superiores al dato horario de temperatura más bajo del día</li>
       <li>Temperaturas máximas diarias 3°C o más por encima del dato horario de temperatura más elevado del día</li>
       <li>Temperaturas mínimas diarias 3°C o más por debajo del dato horario de temperatura más bajo del día</li>
     </ul>
-    <p>Los controles con datos horarios fueron utilizados principalmente para los datos posteriores a 1991, debido a que en la mayoría de los casos, a partir de este año se tiene  
-    una mayor disponibilidad y frecuencia de datos horarios (25 datos horarios por día).</p>
+    <p>Los controles con datos horarios fueron utilizados principalmente para los datos posteriores a 1991, ya que en la mayoría de los casos, a partir de ese año se tiene  
+    una mayor disponibilidad y frecuencia de datos horarios.</p>
     <div style="background-color: #fff3cd; border-left: 6px solid #ffecb5; padding: 15px; margin: 20px 0; border-radius: 4px; font-family: sans-serif;">
       Un ejemplo: En Malargüe aparece una temperatura mínima de -3.8°C el día 3 de noviembre del 2008. Sin embargo, la temperatura horaria más baja de aquel día fue de 7.7°C. 
     En Ogimet, se encontró que los -3.8°C en realidad se tratan de un error de codificación (21038 en lugar de 20138 en la sección 3 del synop de las 00z). En consecuencia, 
