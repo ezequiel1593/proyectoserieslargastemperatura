@@ -63,9 +63,13 @@
         y la temperatura mínima horaria dentro del período 1991-2020, y de manera análoga se define a la segunda. Cada estación con la cantidad suficiente de datos horarios 
         (25 por día durante una buena cantidad de tiempo) cuenta con un corMin y un corMax. Para que un dato diario faltante sea estimado y rellenado, como mínimo ese día 
         debe contar con 23 observaciones horarias. La estimación consiste en simplemente sumarle la corrección correspondiente al extremo horario mínimo o máximo, según sea el caso.</li>
-    </ul>
-    <li>Uso de estaciones aledañas: cuando no se pudo imputar datos faltantes usando datos horarios, se armaron modelos de regresión lineal, con 2 estaciones aledañas (en la medida 
+      <li>Uso de estaciones aledañas: cuando no se pudo imputar datos faltantes usando datos horarios, se armaron modelos de regresión lineal, con 2 estaciones aledañas (en la medida 
       de lo posible, no incluidas en este proyecto), utilizando períodos acotados de tiempo (no toda la serie), y principalmente para rellenar datos faltantes que, durante determinados 
       períodos, se generaron como consecuencia de la escasez de personal, en los momentos de las vacaciones del único observador, o en sus descansos dominicales o de fin de semana.</li>
+    </ul>
+
+    <h4>Uso de las Cartas del Tiempo</h4>
+    <p>La particularidad de las Cartas del Tiempo es que los datos de temperatura mínima y máxima aparecen expresados como números enteros. Entonces, surge la pregunta de si es una 
+    buena idea usar datos sin decimales para calcular las Tnm y Txm.</p>
   </body>
 </html>
