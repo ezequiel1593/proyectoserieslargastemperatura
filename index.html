@@ -3,14 +3,14 @@
 <head> <link rel="stylesheet" href="style.css"> </head>
   <body style="background-color: #ffe5b0;">
     <p><b>Proyecto de construcción de series largas de temperatura de Argentina.</b></p>
-    <p>Este es un proyecto personal a largo plazo en el que se busca la construcción de series centenarias homogéneas (o lo más homogéneas posibles) de temperaturas medias mensuales
+    <p>Este es un proyecto personal a largo plazo en el que se busca la construcción de series centenarias (o casi centenarias) homogéneas (o lo más homogéneas posibles) de temperaturas medias mensuales
       de la temperatura mínima y máxima, y por extensión también valores medios estacionales y anuales.</p>
     <p>Los pasos a seguir son los siguientes:</p>
     <ul>
       <li><a href="#busqueda">Búsqueda de datos y metadatos</a></li>
       <li><a href="#control">Control de calidad de los datos</a></li>
       <li><a href="#imputacion">Imputación de datos faltantes</a></li>
-      <li>Homogeneización de la serie</li>
+      <li><a href="#homogeneo">Homogeneización de la serie</a></li>
     </ul>
 
     <h4>Introducción</h4>
@@ -19,6 +19,136 @@
     mensual (Txm)</b> se define de manera análoga, pero utilizando datos diarios de temperatura máxima.</p>
     <p>La temperatura mínima/máxima media estacional es el promedio de las Tnm/Txm que componen la estación, utilizando el criterio meteorológico/climatológico. La temperatura 
     mínima/máxima media anual es el promedio de las Tnm/Txm que componen el año.</p>
+
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-cyze{background-color:#cbcefb;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-fs2w{background-color:#cbcefb;font-weight:bold;text-align:center;vertical-align:top}
+</style>
+<table class="tg";align="center"><thead>
+  <tr>
+    <th class="tg-cyze">Estación</th>
+    <th class="tg-fs2w">Inicio teórico de observaciones</th>
+    <th class="tg-fs2w">Período serie reconstruida</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-1wig">Azul</td>
+    <td class="tg-baqh">1900</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Ceres</td>
+    <td class="tg-baqh">1896</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Córdoba Observatorio</td>
+    <td class="tg-baqh">1872</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Coronel Suárez</td>
+    <td class="tg-baqh">1936</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Dolores</td>
+    <td class="tg-baqh">1878</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Goya - Reconquista</td>
+    <td class="tg-baqh">1876</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">La Rioja</td>
+    <td class="tg-baqh">1875</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Malargüe</td>
+    <td class="tg-baqh">1914</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Monte Caseros</td>
+    <td class="tg-baqh">1904</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Nueve de Julio</td>
+    <td class="tg-baqh">1902</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Paraná</td>
+    <td class="tg-baqh">1875</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Pcia Roque Saenz Peña</td>
+    <td class="tg-baqh">1925</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Pigüé</td>
+    <td class="tg-baqh">1934</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Pilar Observatorio</td>
+    <td class="tg-baqh">1907</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Rio Cuarto</td>
+    <td class="tg-baqh">1875</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Rosario</td>
+    <td class="tg-baqh">1875</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Salta</td>
+    <td class="tg-baqh">1873</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">San Luis</td>
+    <td class="tg-baqh">1874</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Santa Rosa</td>
+    <td class="tg-baqh">1910</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Santiago del Estero</td>
+    <td class="tg-baqh">1873</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">Villa Dolores</td>
+    <td class="tg-baqh">1903</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+</tbody></table>
 
     <h4 id="busqueda">Búsqueda de datos</h4>
     <p>La materia prima para los datos mensuales son los datos diarios. Se hicieron peticiones al Servicio Meteorológico Nacional (SMN). Los datos posteriores a la recepción 
@@ -70,6 +200,14 @@
 
     <h4>Uso de las Cartas del Tiempo</h4>
     <p>La particularidad de las Cartas del Tiempo es que los datos de temperatura mínima y máxima aparecen expresados como números enteros. Entonces, surge la pregunta de si es una 
-    buena idea usar datos sin decimales para calcular las Tnm y Txm.</p>
+      buena idea usarlos para calcular las Tnm y Txm. Se realizó un pequeño estudio en el que se seleccionaron de manera aleatoria 50 series de temperatura mínima y máxima diarias, 
+      para luego obtener la diferencia entre las Tnm y Txm calculadas con y sin los datos redondeados al entero más próximo (redondeo aleatorio para aquellos datos terminados en .5), 
+      para cada mes y año. El 74.8% de las 22827 diferencias calculadas en total se situaron entre -0.1°C y 0.1°C, y una diferencia que en valor absoluto iguale o supere las 3 décimas 
+      de grado se presentó en sólamente el 2.1% de los casos. Esto sugiere que no estaría tan mal aceptar estos datos.</p>
+    <p>Sin embargo, es una tarea titánica extraer de estos documentos lo necesario para completar las series. Es por eso que se están esperando los resultados de los climatólogos 
+    europeos que están llevando adelante la digitalización de las Cartas del Tiempo. A febrero de 2026, sólo están disponibles las transcripciones de 1902 y 1903.</p>
+
+    <h4 id="homogeneo">Homogeneización</h4>
+    <p>Este es el último paso, y para ello es fundamental contar la mayor cantidad de metadatos posibles.</p>
   </body>
 </html>
